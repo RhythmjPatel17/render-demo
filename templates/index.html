@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Evaluation Prediction</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 50px; }
+        .form-container { max-width: 500px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; }
+        .form-container input { width: 100%; padding: 10px; margin: 5px 0 20px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        .form-container button { background-color: #4CAF50; color: white; border: none; padding: 10px; width: 100%; cursor: pointer; }
+        .form-container button:hover { background-color: #45a049; }
+        .result { font-size: 1.5em; color: #4CAF50; text-align: center; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Car Evaluation Prediction</h2>
+        <form action="/predict" method="post">
+            <label>Buying:</label>
+            <input type="text" name="buying" placeholder="vhigh, high, med, low" required>
+            
+            <label>Maintenance:</label>
+            <input type="text" name="maint" placeholder="vhigh, high, med, low" required>
+            
+            <label>Doors:</label>
+            <input type="text" name="doors" placeholder="2, 3, 4, 5more" required>
+            
+            <label>Persons:</label>
+            <input type="text" name="persons" placeholder="2, 4, more" required>
+            
+            <label>Luggage Boot:</label>
+            <input type="text" name="lug_boot" placeholder="small, med, big" required>
+            
+            <label>Safety:</label>
+            <input type="text" name="safety" placeholder="low, med, high" required>
+            
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction_text %}
+            <div class="result">{{ prediction_text }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
